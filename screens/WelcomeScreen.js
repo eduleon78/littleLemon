@@ -1,6 +1,5 @@
 import * as React from 'react';
-import { 
-  ScrollView, 
+import {  
   View,
   Text, 
   StyleSheet,
@@ -8,50 +7,58 @@ import {
   Pressable 
 } from 'react-native';
 
-export const WelcomeScreen = ({ navigation }) => {
+const WelcomeScreen = ({ navigation }) => {
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.headerWrapper}>
-        <Image 
-          style={styles.image} 
-          source={('../assets/litle-lemon-logo.png')}
-          resizeMode="cover"
-          accessible={true}
-          accessibilityLabel={'Little Lemon Logo'} 
-        />
-        <Text style={styles.headerText}>
-            Litle Lemon, Your Local Mediterranean Bistro
-        </Text>
-        <Pressable 
-          onPress={() => navigation.navigate('WelcomeScreen')}
-          style={styles.button}>
-          <text style={styles.buttonText}>View Menu</text>
-        </Pressable>
-      </View>
-    </ScrollView>    
+    <View>
+      <Image 
+        style={styles.logo} 
+        source={require("../assets/little-lemon-logo.png")}
+        resizeMode="cover"
+        accessible={true}
+        accessibilityLabel={'Little Lemon Logo'} 
+      />
+      <Text style={styles.textStyle}>
+          Litle Lemon, Your Local Mediterranean Bistro
+      </Text>
+      <Pressable 
+        onPress={() => navigation.navigate('Subscribe')}
+        style={styles.button}>
+        <Text style={styles.buttonStyle}>Newsletter</Text>
+      </Pressable>
+    </View>   
   ); 
 };
 
+export default WelcomeScreen;
+
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#333333',
+  logo: {
+    marginTop: 150,
+    marginLeft: 100,
+    height: 200,
+    width: 200,
+    resizeMode: "contain"
   },
-  button: {
-    fontSize: 22,
-    padding: 10,
-    marginVertical: 8,
-    margin: 100,
-    backgroundColor: '#EE9972',
-    borderColor: '#EE9972',
-    borderWidth: 2,
-    borderRadius: 50,
+  textStyle : {
+    marginTop: 90,
+    marginLeft: 80,
+    marginRight: 80,
+    marginBottom: 150,
+    fontSize: 19,
+    fontWeight: "bold",
+    textAlign: 'center'
   },
-  buttonText: {
-    color: 'black',
+  buttonStyle : {
+    marginLeft: 20,
+    marginRight: 20,
+    backgroundColor: "#006600",
     textAlign: 'center',
-    fontSize: 25,
-  },
+    padding: 10,
+    borderRadius: 10,
+    color: "#ffffff",
+    fontSize: 16,
+    fontWeight: "bold",
+  }
 });
 
 
